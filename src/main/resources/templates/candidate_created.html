@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Succes</title>
+</head>
+<body>
+
+    <div id="succes_created">
+        <h3>Tillykke, kandidaten er nu skabt:</h3>
+        <div id="candidate_name">
+            <p th:text="${candidate_name}"></p>
+        </div>
+    </div>
+
+    <div id="continue_or_frontpage">
+        <h4>Vil du tilegne kandidaten et parti?</h4>
+        <button type="button" id="add_party">Tilføj kandidatens parti</button>
+    </div>
+
+    <script src="../js_scripts/candidate_creator.js" type="text/javascript"></script>
+</body>
+</html>
