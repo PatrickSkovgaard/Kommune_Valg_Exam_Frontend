@@ -1,7 +1,5 @@
-//import fetch from "node-fetch";
-let candidateList;
-let counter = 0;
 
+let candidateList;
 
 
 fetchCandidates()
@@ -11,9 +9,7 @@ async function fetchCandidates (){
         const fetching = await fetch("http://localhost:9090/view_all_candidates")
         candidateList = await fetching.json()
         putInHTML(await candidateList)
-        //counter++;
-       // console.log("Counter is " + counter)
-        //return candidateList;
+
 }
 
 
@@ -21,11 +17,10 @@ function putInHTML(candidates) {
 
                 for (let i = 0; i < candidates.length; i++) {
                         document.getElementById("liste_kand").innerHTML +=
-                            `<li>` + "Navn: " + candidates[i].name +
+                            `<li>` + "Navn: " + candidates[i].fullName +
                             " || Antal Stemmer: " + candidates[i].votes +
                             " || Parti: " + candidates[i].party + `</li>`
 
-                        //candidateList = candidateListHtml;
                 }
 }
 
@@ -54,7 +49,7 @@ function putSortedListInHtml(candidatesToSort){
 
         for (let i = 0; i < candidatesToSort.length; i++) {
                 document.getElementById("liste_kand").innerHTML +=
-                    `<li>` + "Navn: " + candidatesToSort[i].name +
+                    `<li>` + "Navn: " + candidatesToSort[i].fullName +
                     " || Antal Stemmer: " + candidatesToSort[i].votes +
                     " || Parti: " + candidatesToSort[i].party + `</li>`
 
@@ -71,10 +66,3 @@ function sortCandidates() {
         console.log(candidateList)
         return candidateList;
 }
-
-function renderSortedCandidates(){
-
-        let sortedCandidates = sortCandidates();
-        //putInHTML(sortedCandidates, true);
-}
-
